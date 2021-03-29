@@ -43,7 +43,7 @@ server <- function(input, output) {
     queue1 <- reactive({
         a = cumsum(rexp(100, 1/input$rateA1)) # arrival times
         s = rexp(100, 1/input$rateS1) # service times
-        q <- queuecomputer::queue_step(arrivals = a, service = s, servers = input$servers1) 
+        q <- queuecomputer::queue_step(arrivals = a, service = s, servers = as.numeric(input$servers1))
         return(q)
     })    
     
